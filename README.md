@@ -1,3 +1,4 @@
+## API – Taxas de Juros de Operações de Crédito (Banco Central do Brasil)
 
 **Formatos disponíveis:**  
 - `json` (padrão)  
