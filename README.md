@@ -1,88 +1,42 @@
-{
-  "api_nome": "Taxas de Juros de Operações de Crédito",
-  "descricao": "API do Banco Central que fornece as taxas médias de juros praticadas pelas instituições financeiras em diversas modalidades de crédito, com dados diários (últimos 5 dias úteis) e mensais.",
-  "url_base": "https://olinda.bcb.gov.br/olinda/servico/taxaJuros/versao/v2/odata/",
-  "formatos_disponiveis": ["json", "xml", "csv", "html"],
-  "parametros_odata": {
-    "$format": "Define o formato de resposta (ex: json, xml)",
-    "$filter": "Filtra registros por condição (ex: modalidade eq 'Crédito Pessoal')",
-    "$select": "Seleciona colunas específicas",
-    "$orderby": "Ordena os dados (ex: dataInicioPeriodo desc)",
-    "$top": "Define o número máximo de registros retornados",
-    "$skip": "Define o número de registros a ignorar (paginação)"
-  },
-  "recursos": [
-    {
-      "nome": "TaxasJurosDiariaPorInicioPeriodo",
-      "descricao": "Taxas médias de juros por instituição nos últimos 5 dias úteis",
-      "dicionario_dados": [
-        {
-          "campo": "dataInicioPeriodo",
-          "tipo": "date",
-          "descricao": "Data de início do período (últimos 5 dias úteis)"
-        },
-        {
-          "campo": "codInstituicao",
-          "tipo": "integer",
-          "descricao": "Código da instituição financeira"
-        },
-        {
-          "campo": "nomeInstituicao",
-          "tipo": "string",
-          "descricao": "Nome da instituição financeira"
-        },
-        {
-          "campo": "codModalidade",
-          "tipo": "integer",
-          "descricao": "Código da modalidade de crédito"
-        },
-        {
-          "campo": "modalidade",
-          "tipo": "string",
-          "descricao": "Descrição da modalidade de crédito"
-        },
-        {
-          "campo": "taxaJuros",
-          "tipo": "float",
-          "descricao": "Taxa média de juros no período (em % ao ano)"
-        }
-      ]
-    },
-    {
-      "nome": "TaxasJurosMensalPorMes",
-      "descricao": "Taxas médias de juros por instituição por mês de referência",
-      "dicionario_dados": [
-        {
-          "campo": "mesReferencia",
-          "tipo": "string",
-          "descricao": "Mês de referência no formato YYYY-MM"
-        },
-        {
-          "campo": "codInstituicao",
-          "tipo": "integer",
-          "descricao": "Código da instituição financeira"
-        },
-        {
-          "campo": "nomeInstituicao",
-          "tipo": "string",
-          "descricao": "Nome da instituição financeira"
-        },
-        {
-          "campo": "codModalidade",
-          "tipo": "integer",
-          "descricao": "Código da modalidade de crédito"
-        },
-        {
-          "campo": "modalidade",
-          "tipo": "string",
-          "descricao": "Descrição da modalidade de crédito"
-        },
-        {
-          "campo": "taxaJuros",
-          "tipo": "float",
-          "descricao": "Taxa média de juros no mês (em % ao ano)"
-        }
-      ]
-    }
-  ]
-}
+API – Taxas de Juros de Operações de Crédito (Banco Central do Brasil)
+
+Descrição
+Esta API fornece as taxas médias de juros praticadas pelas instituições financeiras em diversas modalidades de crédito, calculadas a partir dos últimos 5 dias úteis ou por mês de referência. Os dados são públicos e disponibilizados pelo Banco Central do Brasil através do protocolo OData.
+
+URL Base
+https://olinda.bcb.gov.br/olinda/servico/taxaJuros/versao/v2/odata/
+
+Recursos disponíveis
+1. TaxasJurosDiariaPorInicioPeriodo
+Taxas médias de juros praticadas pelas instituições nos últimos 5 dias úteis.
+
+2. TaxasJurosMensalPorMes
+Taxas médias de juros por mês de referência, agrupadas por instituição e modalidade de crédito.
+
+Parâmetros OData disponíveis
+Parâmetro	Descrição
+$format	Define o formato da resposta: json, xml, csv, etc.
+$filter	Aplica filtros aos dados (ex: modalidade eq 'Crédito Pessoal').
+$select	Seleciona colunas específicas.
+$orderby	Ordena os dados por campos definidos (ex: dataInicioPeriodo desc).
+$top	Limita o número de registros retornados.
+$skip	Ignora um número definido de registros (paginação).
+
+Dicionário de Dados
+Recurso: TaxasJurosDiariaPorInicioPeriodo
+Campo	Tipo	Descrição
+dataInicioPeriodo	date	Data de início do período (últimos 5 dias úteis).
+codInstituicao	integer	Código da instituição financeira.
+nomeInstituicao	string	Nome da instituição financeira.
+codModalidade	integer	Código da modalidade de crédito.
+modalidade	string	Tipo da modalidade (ex: Crédito Pessoal, Financiamento Imobiliário).
+taxaJuros	float	Taxa média de juros (em % ao ano) no período.
+
+Recurso: TaxasJurosMensalPorMes
+Campo	Tipo	Descrição
+mesReferencia	string	Mês de referência no formato YYYY-MM.
+codInstituicao	integer	Código da instituição financeira.
+nomeInstituicao	string	Nome da instituição financeira.
+codModalidade	integer	Código da modalidade de crédito.
+modalidade	string	Descrição da modalidade de crédito.
+taxaJuros	float	Taxa média de juros (em % ao ano) do mês de referência.
