@@ -1,5 +1,30 @@
 ## API – Taxas de Juros de Operações de Crédito (Banco Central do Brasil)
 
+# Visão Geral da API
+
+A **API Taxas de Juros de Operações de Crédito por Instituição Financeira – Médias dos últimos 5 dias** disponibiliza, via protocolo **OData**, as **taxas médias de juros** praticadas pelas instituições financeiras em diversas modalidades de crédito, considerando sempre os cinco **últimos dias úteis** disponíveis em cada publicação.  
+Essas taxas correspondem ao **custo efetivo médio** das operações de crédito para o cliente, **já incluindo encargos fiscais e operacionais** incidentes sobre as operações.  
+Fonte: [Portal de Dados Abertos do Banco Central](https://dadosabertos.bcb.gov.br/)
+
+---
+
+## Endpoints Principais
+
+A API possui dois recursos OData, identificados pelos seguintes códigos:
+
+| **Código de Recurso**              | **Descrição**                                                                 |
+|------------------------------------|------------------------------------------------------------------------------|
+| `TaxasJurosDiariaPorInicioPeriodo` | Taxas médias de juros por instituição financeira, calculadas para os últimos 5 dias úteis. |
+| `TaxasJurosMensalPorMes`           | Taxas médias de juros por instituição financeira, calculadas para cada mês de referência.  |
+
+---
+
+## URL Base e Formatos de Retorno
+
+**URL base OData:**
+[https://olinda.bcb.gov.br/olinda/servico/taxaJuros/versao/v2/odata/[CódigoRecurso]?$format=[formato]&[parâmetros]
+
+
 **Formatos disponíveis:**  
 - `json` (padrão)  
 - `xml`  
